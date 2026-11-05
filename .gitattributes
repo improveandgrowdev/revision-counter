@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Keep dev files out of `git archive` / GitHub source zips
+/bin            export-ignore
+/.gitignore     export-ignore
+/.gitattributes export-ignore
+/README.md      export-ignore
