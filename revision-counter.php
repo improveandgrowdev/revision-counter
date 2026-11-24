@@ -2,16 +2,30 @@
 /**
  * Plugin Name:       Revision Counter
  * Description:       Shows how many revisions each page/post has — as an admin list column and in the editor sidebar.
- * Version:           1.1.1
+ * Version:           1.2.0
  * Author:            Ricky Angeles
  * License:           GPL-2.0-or-later
  * Requires at least: 5.9
  * Requires PHP:      7.4
+ * Update URI:        https://github.com/improveandgrowdev/revision-counter
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+define( 'RVC_VERSION', '1.2.0' );
+define( 'RVC_FILE', __FILE__ );
+
+require_once __DIR__ . '/includes/class-rvc-config-limit.php';
+require_once __DIR__ . '/includes/class-rvc-github-updater.php';
+
+if ( is_admin() ) {
+	new RVC_Config_Limit();
+}
+
+// Runs outside admin too: background auto-updates and WP-Cron check for updates.
+new RVC_GitHub_Updater( RVC_FILE, RVC_VERSION );
 
 /**
  * Post types the revision column should appear on.

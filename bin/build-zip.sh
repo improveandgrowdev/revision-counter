@@ -18,7 +18,7 @@ if command -v php >/dev/null 2>&1; then
 fi
 
 # Files that ship in the plugin.
-FILES=( "$SLUG.php" "readme.txt" )
+FILES=( "$SLUG.php" "readme.txt" "includes" )
 
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
