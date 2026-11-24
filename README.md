@@ -47,15 +47,13 @@ The **Release** GitHub Action checks the versions match the tag, builds the zip 
 
 Pushing to `main` without a tag does **not** trigger an update — only a new release does.
 
-### Private repo
+### Private repo (optional)
 
-While this repo is private, each site needs a GitHub token to see updates. Create a fine-grained personal access token with read-only **Contents** access to this repo only, and add it to that site's `wp-config.php`:
+The repo is public, so sites need no setup to get updates. If it is ever made private again, each site needs a fine-grained token with read-only **Contents** access to this repo in its `wp-config.php`:
 
 ```php
 define( 'RVC_GITHUB_TOKEN', 'github_pat_...' );
 ```
-
-If the repo is made public, no token is needed.
 
 ## License
 
